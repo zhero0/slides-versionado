@@ -37,11 +37,12 @@
       <section id="index">
         <ol>
           <li><a href="#/start">Inicializar un repositorio</a></li>
+          <li><a href="#/status">Revisar el estado actual de trabajo</a></li>
           <li><a href="#/add">Agregar archivos al stage</a></li>
           <li><a href="#/comodines">Comodines para git add</a></li>
           <li><a href="#/commit">Hacer un commit</a></li>
           <li><a href="#/commit1">¿Qué poner en el mensaje del commit?</a></li>
-          <li><a href="#/status">Revisar el estado actual de trabajo</a></li>
+          <li><a href="#/commit-add">Add y Commit juntos</a></li>
           <li><a href="#/rm">Eliminar archivos</a></li>
           <li><a href="#/mv">Mover archivos</a></li>
           <li><a href="#/diff">Cambios entre versiones</a></li>
@@ -118,6 +119,20 @@ git add Archivo1.txt
           <li>Describe detalladamente los cambios, puedes usar bullets</li>
           <li>Sigue una guía con base a tu proyecto</li>
         </ul>
+      </section>
+
+      <section id="commit-add">
+        <h3>Add y Commit juntos</h3>
+        Para hacer las cosas mas rápidas, puedes hacer un add y un commit en un
+        solo comando.<br>
+        <pre><code>git commit -a -m 'Mensaje'</code></pre>
+        <p class="warning">La bandera <strong>-a</strong> agrega los archivos modificados y
+        eliminados, pero no los nuevos</p>
+      </section>
+
+      <section>
+        También podrías ejecutar los dos comandos, pero en una misma linea.
+        <pre><code>git add . && git commit -m 'Mensaje'</code></pre>
       </section>
 
       <section id="rm">

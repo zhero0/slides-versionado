@@ -1,1 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+  <title>Control de Versiones | Maestría en Desarrollo Web</title>
+
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Presentation -->
+      <section>
+        <h3>Maestría en Desarrollo Web</h3>
+        <h2>Control de Versiones</h2>
+        <h1>GIT, branches</h1>
+      </section>
+
+      <section id="index">
+        <ol>
+          <li><a href="#/branches">Qué es una rama</a></li>
+          <li><a href="#/checkout-b">Crear una rama</a></li>
+          <li><a href="#/checkout">Cambiarse entre ramas</a></li>
+          <li><a href="#/merge">Fusionar cambios de una rama en otra</a></li>
+          <li><a href="#/push">Subir rama a remoto</a></li>
+          <li><a href="#/push-all">Subir todas las ramas al remoto</a></li>
+        </ol>
+      </section>
+
+      <section id="branches">
+        <h3>Qué es una rama</h3>
+        Una rama Git es un apuntador móvil apuntando a un commit. La rama por
+        defecto de Git es la rama master. Con el primer commit que realicemos,
+        se creará esta rama principal master apuntando a ese commit. En cada
+        commit que realicemos, la rama irá avanzando automáticamente. Y la rama
+        master apuntará siempre al último commit realizado.
+      </section>
+
+      <section id="checkout-b">
+        <h3>Crear una rama</h3>
+        ¿Qué sucede cuando creas una nueva rama? Bueno..., simplemente se crea
+        un nuevo apuntador para que lo puedas mover libremente. Por ejemplo,
+        si quieres crear una nueva rama denominada "testing". Usarás el comando
+        git branch:
+        <pre><code data-trim>git branch testing</code></pre>
+        <p class="info">Se crea la nueva rama, la cual apunta al commit en el que
+          estas actualmente, y tu HEAD también se mantiene ahí.</p>
+      </section>
+
+      <section id="checkout">
+        <h3>Cambiarse entre ramas</h3>
+        Para saltar de una rama a otra, tienes que utilizar el comando git
+        checkout.
+        <pre><code>git checkout testing</code></pre>
+      </section>
+
+      <section>
+        <h3>Crear y cambiarse de rama</h3>
+        Podemos ahorrar pasos y crear y cambiarnos de rama al mismo tiempo.
+        <pre><code>git checkout -b testing</code></pre>
+      </section>
+
+      <section id="merge">
+        <h3>Fusionar cambios de una rama en otra</h3>
+        Para incorporar en una rama los cambios de otros, esta fusión se hace
+        con el comando git merge.<br>
+        Es importante que siempre este primero ubicado en la rama destino.
+        <pre><code>git merge master</code></pre>
+        <p class="info">git merge toma los cambios de la rama indicada y los fusiona en la
+        historia de la rama sobre la cual se ejecutó el comando.</p>
+      </section>
+
+      <section id="push">
+        <h3>Subir rama a remoto</h3>
+        Utilizamos el comando git push [remoto] [rama]
+        <pre><code>git push origin testing</code></pre>
+      </section>
+
+      <section id="push-all">
+        <h3>Subir todas las ramas al remoto</h3>
+        Utilizamos el comando git push --all [remoto]
+        <pre><code>git push --all origin</code></pre>
+      </section>
+
+      <section>
+        <a href="#">Ir al siguiente módulo</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    controls: false,
+    slideNumber: true,
+    dependencies: [
+      { src: 'reveal.js/plugin/markdown/marked.js' },
+      { src: 'reveal.js/plugin/markdown/markdown.js' },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true },
+      { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+  });
+  </script>
+</body>
+</html>
