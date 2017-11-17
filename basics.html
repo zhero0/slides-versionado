@@ -163,7 +163,14 @@ git status
         Identifica todos los cambios de un archivo entre diferentes versiones.
         <pre><code data-trim>git diff </code></pre>
       </section>
-
+      
+      <section id="diff">
+        <h3>Comparar dos commits</h3>
+        Los cambios en git tienen un número hexadecimal que los identifica. 
+        Para revisar la diferencia entre dos commits se debe utilizar el comando git diff especificando los números hexadecimales de cada commit a comparar        
+        <pre><code data-trim>git diff [options] <commit> <commit> [--] [<path>…​] </code></pre>
+      </section>
+      
       <section id="log">
         <h3>Historial (log)</h3>
         Ver el historial de cambios de nuestro repositorio
