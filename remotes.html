@@ -38,6 +38,7 @@
         <ol>
           <li><a href="#/remoto">Repositorio remoto</a></li>
           <li><a href="#/clone">Clonar un repositorio</a></li>
+          <li><a href="#/ssh">Protocolo SSH vs HTTPS</a></li>
           <li><a href="#/remote-v">Listar remotos</a></li>
           <li><a href="#/remote-add">Agregar remoto</a></li>
           <li><a href="#/push">Subir cambios a remoto</a></li>
@@ -67,10 +68,30 @@
           agrega al final el nombre del folder que deseas.</p>
       </section>
 
-      <section>
+      <section id="ssh">
         <h3>Protocolo SSH o HTTPS</h3>
-
-      </section>
+        HTith es recomendado por Github porque es un puerto que está abierto en todos los firewalls de red, por lo tanto, Github tiene acceso universal cuando usa HTTPS. También hay muy poca configuración involucrada, por lo que usar HTTPS es muy fácil. Todo lo que necesita es una cuenta de Github y configurar Git con su nombre y dirección de correo electrónico (como se detalla anteriormente en la sección de requisitos comunes).
+        <br>
+        Sin embargo, cada vez que clona , busca , tira o empuja a un repositorio remoto de Github usando HTTPS, debe proporcionar su nombre de usuario y contraseña de GitHub. Esto significa tipearlos en la línea de comando cada vez o agregarlos a su herramienta Github favorita (que con suerte los almacena en caché en un formato cifrado en el espacio de archivos).
+        <br>
+        Es posible almacenar en caché su nombre de usuario y contraseña por un período de tiempo, por lo que solo tiene que ingresarlos de vez en cuando.
+        <br>
+        <p class="info">Establecer git para usar la memoria caché de credenciales 
+          <br>
+        git config --global credential.helper cache 
+        <br>
+        Establece el caché en el tiempo de espera después de 1 hora (la configuración está en segundos) 
+        <br>
+        git config --global credential.helper 'cache --timeout = 3600'</p>
+        Con SSH crea un par de claves públicas / privadas para cada computadora que va a usar para conectarse a Github. Copias la clave pública a tu cuenta de Github y cuando presionas un cambio en github se firma con tu clave privada para que Github sepa que eres tú quien la está presionando. Esto agrega una pequeña configuración, pero nunca tendrá que proporcionar su nombre de usuario y contraseña cuando acceda a los repositorios de Github.
+        <br>
+        Las claves SSH son más seguras porque no brindan acceso a su cuenta de Github. Si alguien consigue su clave privada (es decir, se robaron su computadora y la piratearon), entonces podrían hacer cosas desagradables en sus repositorios (por ejemplo, un impulso forzado de un repositorio vacío que borra su historial de cambios).
+        <br>
+        <p class="info">Generar llaves 
+        <br>
+        ssh-keygen -t rsa -C my-github@email.com 
+        </p>
+        </section>
 
       <section id="remote-v">
         <h3>Listar los remotos de un repositorio</h3>
